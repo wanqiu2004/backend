@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 可选的属性配置 -->
+    <properties>
+        <!-- 如果有需要定义的属性可以在这里定义 -->
+    </properties>
+
+    <!-- 设置 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 类型别名 -->
+    <typeAliases>
+        <typeAlias type="ch.cloudns.wanqiu.UserAccounts" alias="UserAccounts"/>
+    </typeAliases>
+
+    <!-- 环境配置 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 事务管理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据源配置 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/"/>
+                <property name="username" value="wanqiu"/>
+                <property name="password" value="nB2:!YMXH4kD.an"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 映射器 -->
+    <mappers>
+        <mapper resource="mapper/user-accounts-mapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ch.cloudns.wanqiu.UserAccountsMapper">
+
+    <!-- resultMap 显式映射实体类属性与数据库字段 -->
+    <resultMap id="BaseResultMap" type="ch.cloudns.wanqiu.UserAccounts">
+        <id property="userId" column="user_id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="email" column="email" />
+    </resultMap>
+
+    <!-- 查询全部 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT user_id, username, password, email FROM website_data.user_accounts LIMIT 50;
+    </select>
+
+    <!-- 插入一条记录 -->
+    <insert id="insert" parameterType="ch.cloudns.wanqiu.UserAccounts">
+        INSERT INTO website_data.user_accounts (user_id, username, password, email)
+        VALUES (#{userId}, #{username}, #{password}, #{email})
+    </insert>
+
+    <!-- 根据 user_id 查询 -->
+    <select id="selectById" parameterType="String" resultMap="BaseResultMap">
+        SELECT user_id, username, password, email
+        FROM website_data.user_accounts
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="ch.cloudns.wanqiu.UserAccounts">
+        UPDATE website_data.user_accounts
+        SET username = #{username},
+            password = #{password},
+            email = #{email}
+        WHERE user_id = #{userId}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="String">
+        DELETE FROM website_data.user_accounts WHERE user_id = #{userId}
+    </delete>
+
+</mapper>
