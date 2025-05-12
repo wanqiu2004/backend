@@ -1,0 +1,13 @@
+ch\cloudns\wanqiu\captcha\CaptchaApplication.class
+ch\cloudns\wanqiu\captcha\CaptchaApplication$ApkFileProperties.class
+ch\cloudns\wanqiu\WebfluxApplication.class
+ch\cloudns\wanqiu\GreetingClient.class
+ch\cloudns\wanqiu\captcha\CaptchaApplication$CaptchaRouter.class
+ch\cloudns\wanqiu\GreetingRouter.class
+ch\cloudns\wanqiu\JavaFaker.class
+ch\cloudns\wanqiu\UserAccounts.class
+ch\cloudns\wanqiu\Greeting.class
+ch\cloudns\wanqiu\captcha\CaptchaApplication$CaptchaHandler.class
+ch\cloudns\wanqiu\captcha\CaptchaApplication$VideoInfoHandler.class
+ch\cloudns\wanqiu\CaptchaGenerator.class
+ch\cloudns\wanqiu\GreetingHandler.class

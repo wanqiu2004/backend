@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="ch.cloudns.wanqiu.UserAccountsTest" time="1.243" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="C:\Users\wanqi\Desktop\backend\wanqiu\target\test-classes;C:\Users\wanqi\Desktop\backend\wanqiu\target\classes;D:\MavenRepository\org\springframework\boot\spring-boot-starter-webflux\3.4.4\spring-boot-starter-webflux-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter\3.4.4\spring-boot-starter-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot\3.4.4\spring-boot-3.4.4.jar;D:\MavenRepository\org\springframework\spring-context\6.2.5\spring-context-6.2.5.jar;D:\MavenRepository\org\springframework\spring-aop\6.2.5\spring-aop-6.2.5.jar;D:\MavenRepository\org\springframework\spring-expression\6.2.5\spring-expression-6.2.5.jar;D:\MavenRepository\org\springframework\boot\spring-boot-autoconfigure\3.4.4\spring-boot-autoconfigure-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-logging\3.4.4\spring-boot-starter-logging-3.4.4.jar;D:\MavenRepository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;D:\MavenRepository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;D:\MavenRepository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;D:\MavenRepository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;D:\MavenRepository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;D:\MavenRepository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\MavenRepository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-json\3.4.4\spring-boot-starter-json-3.4.4.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-databind\2.18.3\jackson-databind-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-annotations\2.18.3\jackson-annotations-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-core\2.18.3\jackson-core-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.3\jackson-datatype-jdk8-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.3\jackson-datatype-jsr310-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.3\jackson-module-parameter-names-2.18.3.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-reactor-netty\3.4.4\spring-boot-starter-reactor-netty-3.4.4.jar;D:\MavenRepository\io\projectreactor\netty\reactor-netty-http\1.2.4\reactor-netty-http-1.2.4.jar;D:\MavenRepository\io\netty\netty-codec-http\4.1.119.Final\netty-codec-http-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-common\4.1.119.Final\netty-common-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-buffer\4.1.119.Final\netty-buffer-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport\4.1.119.Final\netty-transport-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec\4.1.119.Final\netty-codec-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-handler\4.1.119.Final\netty-handler-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-http2\4.1.119.Final\netty-codec-http2-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver-dns\4.1.119.Final\netty-resolver-dns-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver\4.1.119.Final\netty-resolver-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-dns\4.1.119.Final\netty-codec-dns-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver-dns-native-macos\4.1.119.Final\netty-resolver-dns-native-macos-4.1.119.Final-osx-x86_64.jar;D:\MavenRepository\io\netty\netty-resolver-dns-classes-macos\4.1.119.Final\netty-resolver-dns-classes-macos-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport-native-epoll\4.1.119.Final\netty-transport-native-epoll-4.1.119.Final-linux-x86_64.jar;D:\MavenRepository\io\netty\netty-transport-native-unix-common\4.1.119.Final\netty-transport-native-unix-common-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport-classes-epoll\4.1.119.Final\netty-transport-classes-epoll-4.1.119.Final.jar;D:\MavenRepository\io\projectreactor\netty\reactor-netty-core\1.2.4\reactor-netty-core-1.2.4.jar;D:\MavenRepository\io\netty\netty-handler-proxy\4.1.119.Final\netty-handler-proxy-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-socks\4.1.119.Final\netty-codec-socks-4.1.119.Final.jar;D:\MavenRepository\org\springframework\spring-web\6.2.5\spring-web-6.2.5.jar;D:\MavenRepository\org\springframework\spring-beans\6.2.5\spring-beans-6.2.5.jar;D:\MavenRepository\io\micrometer\micrometer-observation\1.14.5\micrometer-observation-1.14.5.jar;D:\MavenRepository\io\micrometer\micrometer-commons\1.14.5\micrometer-commons-1.14.5.jar;D:\MavenRepository\org\springframework\spring-webflux\6.2.5\spring-webflux-6.2.5.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-test\3.4.4\spring-boot-starter-test-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-test\3.4.4\spring-boot-test-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.4\spring-boot-test-autoconfigure-3.4.4.jar;D:\MavenRepository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\MavenRepository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;D:\MavenRepository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\MavenRepository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\MavenRepository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;D:\MavenRepository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;D:\MavenRepository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;D:\MavenRepository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;D:\MavenRepository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;D:\MavenRepository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;D:\MavenRepository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;D:\MavenRepository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\MavenRepository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;D:\MavenRepository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;D:\MavenRepository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;D:\MavenRepository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;D:\MavenRepository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;D:\MavenRepository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\MavenRepository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;D:\MavenRepository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;D:\MavenRepository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\MavenRepository\org\springframework\spring-core\6.2.5\spring-core-6.2.5.jar;D:\MavenRepository\org\springframework\spring-jcl\6.2.5\spring-jcl-6.2.5.jar;D:\MavenRepository\org\springframework\spring-test\6.2.5\spring-test-6.2.5.jar;D:\MavenRepository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;D:\MavenRepository\io\projectreactor\reactor-test\3.7.4\reactor-test-3.7.4.jar;D:\MavenRepository\io\projectreactor\reactor-core\3.7.4\reactor-core-3.7.4.jar;D:\MavenRepository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;D:\MavenRepository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;D:\MavenRepository\org\mybatis\mybatis\3.5.9\mybatis-3.5.9.jar;D:\MavenRepository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;D:\MavenRepository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;D:\MavenRepository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;D:\MavenRepository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;D:\MavenRepository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="D:\jdk-21.0.5+11\bin"/>
+    <property name="sun.java.command" value="C:\Users\wanqi\AppData\Local\Temp\surefire16733263662237798928\surefirebooter-20250512164636599_3.jar C:\Users\wanqi\AppData\Local\Temp\surefire16733263662237798928 2025-05-12T16-46-35_616-jvmRun1 surefire-20250512164636599_1tmp surefire_0-20250512164636599_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\wanqi\Desktop\backend\wanqiu\target\test-classes;C:\Users\wanqi\Desktop\backend\wanqiu\target\classes;D:\MavenRepository\org\springframework\boot\spring-boot-starter-webflux\3.4.4\spring-boot-starter-webflux-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter\3.4.4\spring-boot-starter-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot\3.4.4\spring-boot-3.4.4.jar;D:\MavenRepository\org\springframework\spring-context\6.2.5\spring-context-6.2.5.jar;D:\MavenRepository\org\springframework\spring-aop\6.2.5\spring-aop-6.2.5.jar;D:\MavenRepository\org\springframework\spring-expression\6.2.5\spring-expression-6.2.5.jar;D:\MavenRepository\org\springframework\boot\spring-boot-autoconfigure\3.4.4\spring-boot-autoconfigure-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-logging\3.4.4\spring-boot-starter-logging-3.4.4.jar;D:\MavenRepository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;D:\MavenRepository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;D:\MavenRepository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;D:\MavenRepository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;D:\MavenRepository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;D:\MavenRepository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\MavenRepository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-json\3.4.4\spring-boot-starter-json-3.4.4.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-databind\2.18.3\jackson-databind-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-annotations\2.18.3\jackson-annotations-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\core\jackson-core\2.18.3\jackson-core-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.3\jackson-datatype-jdk8-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.3\jackson-datatype-jsr310-2.18.3.jar;D:\MavenRepository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.3\jackson-module-parameter-names-2.18.3.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-reactor-netty\3.4.4\spring-boot-starter-reactor-netty-3.4.4.jar;D:\MavenRepository\io\projectreactor\netty\reactor-netty-http\1.2.4\reactor-netty-http-1.2.4.jar;D:\MavenRepository\io\netty\netty-codec-http\4.1.119.Final\netty-codec-http-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-common\4.1.119.Final\netty-common-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-buffer\4.1.119.Final\netty-buffer-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport\4.1.119.Final\netty-transport-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec\4.1.119.Final\netty-codec-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-handler\4.1.119.Final\netty-handler-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-http2\4.1.119.Final\netty-codec-http2-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver-dns\4.1.119.Final\netty-resolver-dns-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver\4.1.119.Final\netty-resolver-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-dns\4.1.119.Final\netty-codec-dns-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-resolver-dns-native-macos\4.1.119.Final\netty-resolver-dns-native-macos-4.1.119.Final-osx-x86_64.jar;D:\MavenRepository\io\netty\netty-resolver-dns-classes-macos\4.1.119.Final\netty-resolver-dns-classes-macos-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport-native-epoll\4.1.119.Final\netty-transport-native-epoll-4.1.119.Final-linux-x86_64.jar;D:\MavenRepository\io\netty\netty-transport-native-unix-common\4.1.119.Final\netty-transport-native-unix-common-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-transport-classes-epoll\4.1.119.Final\netty-transport-classes-epoll-4.1.119.Final.jar;D:\MavenRepository\io\projectreactor\netty\reactor-netty-core\1.2.4\reactor-netty-core-1.2.4.jar;D:\MavenRepository\io\netty\netty-handler-proxy\4.1.119.Final\netty-handler-proxy-4.1.119.Final.jar;D:\MavenRepository\io\netty\netty-codec-socks\4.1.119.Final\netty-codec-socks-4.1.119.Final.jar;D:\MavenRepository\org\springframework\spring-web\6.2.5\spring-web-6.2.5.jar;D:\MavenRepository\org\springframework\spring-beans\6.2.5\spring-beans-6.2.5.jar;D:\MavenRepository\io\micrometer\micrometer-observation\1.14.5\micrometer-observation-1.14.5.jar;D:\MavenRepository\io\micrometer\micrometer-commons\1.14.5\micrometer-commons-1.14.5.jar;D:\MavenRepository\org\springframework\spring-webflux\6.2.5\spring-webflux-6.2.5.jar;D:\MavenRepository\org\springframework\boot\spring-boot-starter-test\3.4.4\spring-boot-starter-test-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-test\3.4.4\spring-boot-test-3.4.4.jar;D:\MavenRepository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.4\spring-boot-test-autoconfigure-3.4.4.jar;D:\MavenRepository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\MavenRepository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;D:\MavenRepository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\MavenRepository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\MavenRepository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;D:\MavenRepository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;D:\MavenRepository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;D:\MavenRepository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;D:\MavenRepository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;D:\MavenRepository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;D:\MavenRepository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;D:\MavenRepository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\MavenRepository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;D:\MavenRepository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;D:\MavenRepository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;D:\MavenRepository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;D:\MavenRepository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;D:\MavenRepository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;D:\MavenRepository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\MavenRepository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;D:\MavenRepository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;D:\MavenRepository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\MavenRepository\org\springframework\spring-core\6.2.5\spring-core-6.2.5.jar;D:\MavenRepository\org\springframework\spring-jcl\6.2.5\spring-jcl-6.2.5.jar;D:\MavenRepository\org\springframework\spring-test\6.2.5\spring-test-6.2.5.jar;D:\MavenRepository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;D:\MavenRepository\io\projectreactor\reactor-test\3.7.4\reactor-test-3.7.4.jar;D:\MavenRepository\io\projectreactor\reactor-core\3.7.4\reactor-core-3.7.4.jar;D:\MavenRepository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;D:\MavenRepository\com\mysql\mysql-connector-j\9.2.0\mysql-connector-j-9.2.0.jar;D:\MavenRepository\org\mybatis\mybatis\3.5.9\mybatis-3.5.9.jar;D:\MavenRepository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;D:\MavenRepository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;D:\MavenRepository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;D:\MavenRepository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;D:\MavenRepository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\wanqi"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.home" value="D:\jdk-21.0.5+11"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\wanqi\Desktop\backend\wanqiu"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\wanqi\AppData\Local\Temp\surefire16733263662237798928\surefirebooter-20250512164636599_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.5+11-LTS"/>
+    <property name="user.name" value="wanqiu"/>
+    <property name="stdout.encoding" value="GBK"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.5+11"/>
+    <property name="localRepository" value="D:\MavenRepository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\wanqi\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.3.5"/>
+    <property name="java.version" value="21.0.5"/>
+    <property name="user.dir" value="C:\Users\wanqi\Desktop\backend\wanqiu"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\jdk-21.0.5+11\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\ImageMagick-7.1.1-Q16-HDRI;D:\VMware Workstation 17 Pro\bin\;D:\Python3.10.10\Scripts\;D:\Python3.10.10\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Bandizip\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\upx;D:\ffmpeg-master-latest-win64-gpl\bin;D:\MinGW\mingw64\bin;D:\node.js\;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\微信web开发者工具\dll;D:\MyS;L\MySQL Server 5.7\bin;D:\Neovim\bin;C:\Program Files\Google\Chrome\Application\chrome.exe;D:\Tesseract-OCR;D:\Maven-3.9.8\bin;D:\kotlinc\bin;C:\Qt\6.7.2\mingw_64\bin;D:\apache-tomcat-10.1.26\bin;D:\gradle\bin;D:\gradle\repository;D:\Realesrgan-ncnn-vulkan-20220424-windows\;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.41.34120\bin\Hostx64\x64;C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64;D:\Flutter_Windows\flutter\bin;D:\hugo;D:\Git\cmd;D:\Cargo\bin;D:\jdk-21.0.5+11\\bin;D:\Qt\6.7.3\mingw_64\bin;D:\ohpm\ohpm-1.4.0\bin\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\gh_2.64.0_windows_amd64\bin\;D:\Go\bin;D:\aria2c\;D:\Android\Sdk\cmdline-tools\latest\bin;;D:\Android\Sdk\platform-tools;D:\Android\Sdk\emulator;C:\flutter\flutter_windows_3.29.3-stable\flutter\bin;D:\ImageMagick-7.1.1-Q16-HDRI;D:\VMware Workstation 17 Pro\bin\;D:\Python3.10.10\Scripts\;D:\Python3.10.10\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Bandizip\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\upx;D:\ffmpeg-master-latest-win64-gpl\bin;D:\MinGW\mingw64\bin;D:\node.js\;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\微信web开发者工具\dll;D:\MyS;L\MySQL Server 5.7\bin;D:\Neovim\bin;C:\Program Files\Google\Chrome\Application\chrome.exe;D:\Tesseract-OCR;D:\Maven-3.9.8\bin;D:\kotlinc\bin;C:\Qt\6.7.2\mingw_64\bin;D:\apache-tomcat-10.1.26\bin;D:\gradle\bin;D:\gradle\repository;D:\Realesrgan-ncnn-vulkan-20220424-windows\;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.41.34120\bin\Hostx64\x64;C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64;D:\Flutter_Windows\flutter\bin;D:\hugo;D:\Git\cmd;D:\Cargo\bin;D:\jdk-21.0.5+11\\bin;D:\Qt\6.7.3\mingw_64\bin;D:\ohpm\ohpm-1.4.0\bin\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\gh_2.64.0_windows_amd64\bin\;D:\Go\bin;D:\aria2c\;D:\Android\Sdk\cmdline-tools\latest\bin;;D:\Android\Sdk\platform-tools;D:\Android\Sdk\emulator;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Cargo\bin;C:\Users\wanqi\AppData\Local\Microsoft\WindowsApps;D:\PyCharm\PyCharm Community Edition 2023.2.1\bin;D:\PyCharm 2024.1\bin;D:\CLion 2023.2.2\bin;D:\IntelliJ IDEA 2024.1.4\bin;D:\PhpStorm 2023.2.4\bin;D:\WebStorm 2024.2\bin;D:\Microsoft VS Code\bin;C:\Users\wanqi\AppData\Roaming\npm;D:\Neovim\bin;D:\DataGrip 2024.1.4\bin;D:\DevEco Studio\bin;C:\Users\wanqi\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files (x86)\Microsoft\Edge\Application;C:\Program Files\Google\Chrome\Application;C:\Users\wanqi\AppData\Local\Microsoft\WindowsApps;C:\Users\wanqi\go\bin;%IntelliJ IDEA Community Edition%;C:\Users\wanqi\.dotnet\tools;C:\Users\wanqi\.dotnet\tools;D:\wix314-binaries;D:\JetBrains\IntelliJ IDEA 2024.3.5\bin;;C:\Users\wanqi\AppData\Local\GitHubDesktop\bin;C:\Users\wanqi\AppData\Local\Programs\Ollama;C:\Users\wanqi\Desktop\curl-8.13.0_2-win64-mingw\bin\;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="GBK"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.5+11-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="maven.repo.local" value="D:\MavenRepository"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testSelectAllUsers" classname="ch.cloudns.wanqiu.UserAccountsTest" time="0.858">
+    <system-out><![CDATA[Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+PooledDataSource forcefully closed/removed all connections.
+PooledDataSource forcefully closed/removed all connections.
+PooledDataSource forcefully closed/removed all connections.
+PooledDataSource forcefully closed/removed all connections.
+Opening JDBC Connection
+Created connection 795273218.
+Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@2f66e802]
+==>  Preparing: SELECT user_id, username, password, email FROM website_data.user_accounts LIMIT 50;
+==> Parameters: 
+<==    Columns: user_id, username, password, email
+<==        Row: d1bec033-c03b-446b-8fa0-f9ea47fd809a, 梁文昊, 0N6!6xUd4aEhV*, 鑫鹏.万@gmail.com
+<==        Row: f597dadc-85d8-44da-b11e-df3b412f18e8, 陆风华, nx96gw%Kd9E31, 展鹏.谭@hotmail.com
+<==        Row: 0f7ee9a9-1579-4244-9879-d089ea6e6291, 叶浩, DT%Ms!#Le6*, 哲瀚.郭@hotmail.com
+<==        Row: 48d4b940-093d-49e3-9ab1-228f3d11e23d, 田智宸, h$37q96hvn, 绍齐.江@hotmail.com
+<==        Row: 602cf337-17d3-4760-844d-a08ca136afbe, 邓涛, EcZ&p%8x6, 思源.姜@gmail.com
+<==        Row: f50fe88e-c658-4dec-ae11-df354cda5138, 薛聪健, D9^E7Z1w49, 浩宇.熊@hotmail.com
+<==        Row: f4a3b0ce-cde7-44b9-a1f7-d013f5aa373c, 冯擎苍, 9rLUbw9LH, 黎昕.田@gmail.com
+<==        Row: 6a62e0d9-5927-45fa-a5e4-08a9107e9019, 石昊天, LA&$tDr&n7&1, 烨伟.于@yahoo.com
+<==        Row: 2ed67894-7c91-4bbf-bd3a-b8382ab66d37, 徐修杰, wAV@!#Qr3wx&zy, 昊强.段@yahoo.com
+<==        Row: 0816ec91-cec8-4eaa-8538-7f69e3e21bfd, 程志泽, LZ27kb^f#sD$K7, 雨泽.廖@hotmail.com
+<==        Row: 12796165-7e27-4019-aa51-4de19bcbc58c, 韩晟睿, Qy^2aKuNaaift, 晓博.范@hotmail.com
+<==        Row: 2a7f7d40-c655-4199-8ffa-f91b028a8fe0, 陶振家, D#4pwHZ01jTBT, 绍辉.赖@yahoo.com
+<==        Row: 7ac48f44-4693-47ab-b9a2-e0c840ca6d50, 汪琪, N3fKZe0O^, 晓博.杜@gmail.com
+<==        Row: 81d0316f-a0f7-4c06-85a6-443708df5c85, 莫鸿煊, !z41MheiSp, 伟宸.苏@hotmail.com
+<==        Row: 02143448-1a03-4094-82df-57e800c175e7, 贺凯瑞, $7J8pemx5#9, 风华.魏@gmail.com
+<==        Row: 778f42ad-9f4e-475e-83b5-ab1333c1f76f, 陶鑫磊, %KgQfHZGT, 鸿煊.吴@gmail.com
+<==        Row: 8091799f-74b3-4ed8-bd3f-f9f6951a730f, 薛正豪, v$7b5Sn#sD, 晟睿.卢@yahoo.com
+<==        Row: 0181e16f-fea7-477b-8db9-5d533ff383fe, 吴皓轩, uSSQY2^t, 金鑫.江@yahoo.com
+<==        Row: 0da1f420-38cb-4a3a-97b1-c2b5b688559f, 顾鹏涛, #0&t9B!zux7N, 健柏.阎@gmail.com
+<==        Row: c9c2a6b8-e135-4ff1-826c-81ca4c969ff9, 莫立轩, UL#rwQ^hd, 鑫鹏.孙@hotmail.com
+<==        Row: 42dc5bfc-6939-4300-9ac1-ffc91a3d81a2, 史鹏涛, #x6P#@k7uE0, 荣轩.彭@hotmail.com
+<==        Row: 6c8b7903-e10a-4cdd-96bc-5f676b0f0bcb, 阎泽洋, s#x$27I%, 思淼.曾@gmail.com
+<==        Row: c6a85f0b-e347-4e15-b317-889b10e8a29e, 罗思源, m83EXo11, 立辉.孔@yahoo.com
+<==        Row: 644f142d-9ead-42fb-89f1-6e3425b431ab, 廖伟泽, x4$LGDsAf#J, 雪松.崔@gmail.com
+<==        Row: 014f16a4-6922-4db1-800f-1ebb426d9ac3, 张昊天, Jrt*sTg5sM7R, 伟泽.石@gmail.com
+<==        Row: bdbdf2d6-9a5b-4b6a-82fd-882e3c21d1fc, 丁鹏煊, J2m!SJ7L4LX058, 乐驹.黄@hotmail.com
+<==        Row: a50e1483-87fd-4708-935d-f7a122848327, 郭炫明, b1vi#IY%!, 昊然.谭@yahoo.com
+<==        Row: 88eb51a2-d6b6-43f3-abf8-5233efa366ce, 薛嘉熙, dIxsS!u4%, 浩然.邹@gmail.com
+<==        Row: 1edef668-8b4c-4ce9-aec4-0df8a1cd8611, 余天翊, 3761c7DscN362, 子默.王@gmail.com
+<==        Row: c736ecfb-e2df-4be0-8f2e-31e3f3f742fb, 徐博涛, FGfNb@#Rlq88^8, 彬.洪@hotmail.com
+<==        Row: b2ebf5ee-4273-4841-a523-4345880ea4c9, 谭鑫鹏, V0yh8$a&6@, 煜祺.陈@gmail.com
+<==        Row: d160f8e6-6eaf-4e1b-8b7b-59c875b3ca37, 彭峻熙, dgyH6k#n8xQ, 泽洋.陈@gmail.com
+<==        Row: b4490e50-976a-46e3-8df1-04b2d4750194, 毛语堂, 4$71$$E9B, 瑾瑜.邱@yahoo.com
+<==        Row: 16344b34-33da-47ac-9ffa-72e706bb64c4, 朱彬, *2X7SeQS5@2L, 鹏飞.朱@hotmail.com
+<==        Row: 1bf81b93-acef-4bc6-af0c-3ed1d3a55d14, 严子骞, 8X9tb49#^SM6*RT, 鸿煊.汪@yahoo.com
+<==        Row: 610d8628-6a99-4970-b1fe-5cf48fd3bbb7, 田哲瀚, c$a2dk!@f26BGI, 绍辉.高@hotmail.com
+<==        Row: 6cc7f5d7-65f5-4970-ac35-7feb8c920af6, 毛昊天, Xnmtx9!4eY*, 伟宸.谢@gmail.com
+<==        Row: 547a930d-d475-4a50-926a-0f570085d07a, 谭绍齐, 2M*6Lmu9DxL43B, 峻熙.侯@yahoo.com
+<==        Row: 8c015bca-7d29-4c57-b2f1-51720e24ad0f, 赖昊天, ^sVvY1eF, 靖琪.胡@hotmail.com
+<==        Row: dfc59524-9e0d-4a5e-851c-4c64b34ca889, 魏明辉, Lw2@qq$9ix2qE, 泽洋.姜@yahoo.com
+<==        Row: 044d6426-705b-4218-b3c6-503aba6665a7, 龚烨华, 3yoqd1N@L9Es, 浩然.李@hotmail.com
+<==        Row: 24af5dcd-a308-4ff3-85e3-f1918fa9bf3a, 谭昊强, *XM&%M2PX@6XU, 伟泽.严@gmail.com
+<==        Row: e0a4121e-09f1-4c07-a1f5-b9968b798e74, 胡立果, 9*7jY@H^DJ, 明轩.廖@hotmail.com
+<==        Row: a19f9393-9571-40bc-8f3a-72f748d87a53, 龚俊驰, L#k^by*$Ff, 昊焱.邵@hotmail.com
+<==        Row: 1ea799c0-0443-4968-a96c-677c92e76742, 程博文, #J$P*o&5, 鹏煊.毛@hotmail.com
+<==        Row: c13f5787-7fba-49f9-8304-9df06f269761, 史浩轩, 0#DXC1U@8L6!, 天磊.严@yahoo.com
+<==        Row: d89bdbb9-2763-4874-835a-7acb04b5c977, 张正豪, K9#3TbK#V6n, 健柏.熊@yahoo.com
+<==        Row: f1698e1f-7e5c-4bb4-9cb9-395c14706ead, 陆晓啸, O0@lJb&!, 文轩.夏@gmail.com
+<==        Row: 9b9a42cf-b2af-4fb8-9d39-6ea1862b9d01, 熊智宸, @42!E2%8t$U, 正豪.雷@yahoo.com
+<==        Row: 9eabcefe-57af-4275-9f2d-483cbe321b9b, 江哲瀚, #!Y&UZ0t0M@UUX4, 哲瀚.董@gmail.com
+<==      Total: 50
+ID                                     USERNAME            
+--------------------------------------------------------------
+d1bec033-c03b-446b-8fa0-f9ea47fd809a   梁文昊                 
+f597dadc-85d8-44da-b11e-df3b412f18e8   陆风华                 
+0f7ee9a9-1579-4244-9879-d089ea6e6291   叶浩                  
+48d4b940-093d-49e3-9ab1-228f3d11e23d   田智宸                 
+602cf337-17d3-4760-844d-a08ca136afbe   邓涛                  
+f50fe88e-c658-4dec-ae11-df354cda5138   薛聪健                 
+f4a3b0ce-cde7-44b9-a1f7-d013f5aa373c   冯擎苍                 
+6a62e0d9-5927-45fa-a5e4-08a9107e9019   石昊天                 
+2ed67894-7c91-4bbf-bd3a-b8382ab66d37   徐修杰                 
+0816ec91-cec8-4eaa-8538-7f69e3e21bfd   程志泽                 
+12796165-7e27-4019-aa51-4de19bcbc58c   韩晟睿                 
+2a7f7d40-c655-4199-8ffa-f91b028a8fe0   陶振家                 
+7ac48f44-4693-47ab-b9a2-e0c840ca6d50   汪琪                  
+81d0316f-a0f7-4c06-85a6-443708df5c85   莫鸿煊                 
+02143448-1a03-4094-82df-57e800c175e7   贺凯瑞                 
+778f42ad-9f4e-475e-83b5-ab1333c1f76f   陶鑫磊                 
+8091799f-74b3-4ed8-bd3f-f9f6951a730f   薛正豪                 
+0181e16f-fea7-477b-8db9-5d533ff383fe   吴皓轩                 
+0da1f420-38cb-4a3a-97b1-c2b5b688559f   顾鹏涛                 
+c9c2a6b8-e135-4ff1-826c-81ca4c969ff9   莫立轩                 
+42dc5bfc-6939-4300-9ac1-ffc91a3d81a2   史鹏涛                 
+6c8b7903-e10a-4cdd-96bc-5f676b0f0bcb   阎泽洋                 
+c6a85f0b-e347-4e15-b317-889b10e8a29e   罗思源                 
+644f142d-9ead-42fb-89f1-6e3425b431ab   廖伟泽                 
+014f16a4-6922-4db1-800f-1ebb426d9ac3   张昊天                 
+bdbdf2d6-9a5b-4b6a-82fd-882e3c21d1fc   丁鹏煊                 
+a50e1483-87fd-4708-935d-f7a122848327   郭炫明                 
+88eb51a2-d6b6-43f3-abf8-5233efa366ce   薛嘉熙                 
+1edef668-8b4c-4ce9-aec4-0df8a1cd8611   余天翊                 
+c736ecfb-e2df-4be0-8f2e-31e3f3f742fb   徐博涛                 
+b2ebf5ee-4273-4841-a523-4345880ea4c9   谭鑫鹏                 
+d160f8e6-6eaf-4e1b-8b7b-59c875b3ca37   彭峻熙                 
+b4490e50-976a-46e3-8df1-04b2d4750194   毛语堂                 
+16344b34-33da-47ac-9ffa-72e706bb64c4   朱彬                  
+1bf81b93-acef-4bc6-af0c-3ed1d3a55d14   严子骞                 
+610d8628-6a99-4970-b1fe-5cf48fd3bbb7   田哲瀚                 
+6cc7f5d7-65f5-4970-ac35-7feb8c920af6   毛昊天                 
+547a930d-d475-4a50-926a-0f570085d07a   谭绍齐                 
+8c015bca-7d29-4c57-b2f1-51720e24ad0f   赖昊天                 
+dfc59524-9e0d-4a5e-851c-4c64b34ca889   魏明辉                 
+044d6426-705b-4218-b3c6-503aba6665a7   龚烨华                 
+24af5dcd-a308-4ff3-85e3-f1918fa9bf3a   谭昊强                 
+e0a4121e-09f1-4c07-a1f5-b9968b798e74   胡立果                 
+a19f9393-9571-40bc-8f3a-72f748d87a53   龚俊驰                 
+1ea799c0-0443-4968-a96c-677c92e76742   程博文                 
+c13f5787-7fba-49f9-8304-9df06f269761   史浩轩                 
+d89bdbb9-2763-4874-835a-7acb04b5c977   张正豪                 
+f1698e1f-7e5c-4bb4-9cb9-395c14706ead   陆晓啸                 
+9b9a42cf-b2af-4fb8-9d39-6ea1862b9d01   熊智宸                 
+9eabcefe-57af-4275-9f2d-483cbe321b9b   江哲瀚                 
+Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@2f66e802]
+Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@2f66e802]
+Returned connection 795273218 to pool.
+]]></system-out>
+  </testcase>
+</testsuite>

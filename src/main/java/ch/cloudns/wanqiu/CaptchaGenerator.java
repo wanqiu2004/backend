@@ -88,14 +88,15 @@ public class CaptchaGenerator {
       Path baseDir = Paths.get("C:/Users/wanqi/Desktop/backend/wanqiu/src/main/java/");
       Files.createDirectories(baseDir);
 
-//      // 保存为 .txt 文件（key=value）
-//      Path txtPath = baseDir.resolve("captcha_map.txt");
-//      try (BufferedWriter writer = Files.newBufferedWriter(txtPath, StandardCharsets.UTF_8)) {
-//        for (Map.Entry<String, String> entry : captchaMap.entrySet()) {
-//          writer.write(entry.getKey() + "=" + entry.getValue());
-//          writer.newLine();
-//        }
-//      }
+      //      // 保存为 .txt 文件（key=value）
+      //      Path txtPath = baseDir.resolve("captcha_map.txt");
+      //      try (BufferedWriter writer = Files.newBufferedWriter(txtPath, StandardCharsets.UTF_8))
+      // {
+      //        for (Map.Entry<String, String> entry : captchaMap.entrySet()) {
+      //          writer.write(entry.getKey() + "=" + entry.getValue());
+      //          writer.newLine();
+      //        }
+      //      }
 
       // 保存为 .csv 文件（key,value）
       Path csvPath = baseDir.resolve("captcha_map.csv");
@@ -114,12 +115,11 @@ public class CaptchaGenerator {
         oos.writeObject(captchaMap);
       }
 
-      LOGGER.log(System.Logger.Level.INFO, "已保存 captchaMap（txt/csv/ser），共 {0} 项", captchaMap.size());
+      LOGGER.log(
+          System.Logger.Level.INFO, "已保存 captchaMap（txt/csv/ser），共 {0} 项", captchaMap.size());
     } catch (IOException e) {
       System.err.println("保存 captchaMap 失败：" + e.getMessage());
       e.printStackTrace();
     }
   }
-
-
 }

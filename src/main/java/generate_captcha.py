@@ -1,7 +1,8 @@
 # generate_captcha.py
-import sys
 import os
+import sys
 from captcha.image import ImageCaptcha
+
 
 def generate_captcha(text, output_dir, filename):
     os.makedirs(output_dir, exist_ok=True)
@@ -19,9 +20,11 @@ def generate_captcha(text, output_dir, filename):
         print(f"生成验证码 {text} 失败: {e}")
         sys.exit(2)
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("用法: python generate_captcha.py <验证码文本> <输出目录> <文件名>")
+        print(
+            "用法: python generate_captcha.py <验证码文本> <输出目录> <文件名>")
         sys.exit(1)
 
     captcha_text = sys.argv[1]

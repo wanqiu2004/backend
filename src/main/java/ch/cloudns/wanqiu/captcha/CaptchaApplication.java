@@ -1,9 +1,10 @@
 package ch.cloudns.wanqiu.captcha;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.*;
-
 import jakarta.annotation.PostConstruct;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
@@ -12,9 +13,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -25,19 +30,6 @@ import reactor.core.publisher.Mono;
 public class CaptchaApplication {
   public static void main(String[] args) {
     SpringApplication.run(CaptchaApplication.class, args);
-  }
-
-  @org.springframework.context.annotation.Configuration(proxyBeanMethods = false)
-  public static class CaptchaRouter {
-
-    @Bean
-    public RouterFunction<ServerResponse> captchaRoutes(CaptchaHandler handler) {
-      return RouterFunctions
-              .route(RequestPredicates.GET("/api/captcha")
-                      .and(RequestPredicates.accept(MediaType.IMAGE_PNG)), handler::handleGetCaptchaImage)
-              .andRoute(RequestPredicates.POST("/api/captcha/verify")
-                      .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::handleVerifyCaptcha);
-    }
   }
 
   @Component
@@ -78,94 +70,177 @@ public class CaptchaApplication {
     }
 
     public Mono<ServerResponse> handleGetCaptchaImage(ServerRequest request) {
-      return Mono.fromCallable(() -> {
-        if (captchaMap.isEmpty()) {
-          throw new IllegalStateException("验证码映射为空，请检查 captcha_map.ser 是否加载成功。");
-        }
+      return Mono.fromCallable(
+              () -> {
+                if (captchaMap.isEmpty()) {
+                  throw new IllegalStateException("验证码映射为空，请检查 captcha_map.ser 是否加载成功。");
+                }
 
-        String key = captchaKeys.get(ThreadLocalRandom.current().nextInt(captchaKeys.size()));
-        String fileName = key + ".png";
-        String fullPath = captchaImageFilePath + fileName;
+                String key =
+                    captchaKeys.get(ThreadLocalRandom.current().nextInt(captchaKeys.size()));
+                String fileName = key + ".png";
+                String fullPath = captchaImageFilePath + fileName;
 
-        log.debug("🎯 准备返回验证码图片，文件路径：{}", fullPath);
+                log.debug("🎯 准备返回验证码图片，文件路径：{}", fullPath);
 
-        File imageFile = new File(fullPath);
-        if (!imageFile.exists()) {
-          throw new FileNotFoundException("图片文件不存在: " + fullPath);
-        }
+                File imageFile = new File(fullPath);
+                if (!imageFile.exists()) {
+                  throw new FileNotFoundException("图片文件不存在: " + fullPath);
+                }
 
-        return new AbstractMap.SimpleEntry<>(key, imageFile);
-      }).flatMap(pair -> {
-        String key = pair.getKey();
-        File file = pair.getValue();
-        try {
-          InputStream inputStream = new FileInputStream(file);
-          return ServerResponse.ok()
-                  .contentType(MediaType.IMAGE_PNG)
-                  .header(HttpHeaders.CACHE_CONTROL, "no-store, no-cache, must-revalidate")
-                  .header(HttpHeaders.PRAGMA, "no-cache")
-                  .header(HttpHeaders.EXPIRES, "0")
-                  .header("X-Captcha-Key", key)  // 返回key给前端，必须保存用于校验
-                  .body(BodyInserters.fromResource(new InputStreamResource(inputStream)));
-        } catch (FileNotFoundException e) {
-          return ServerResponse.status(500)
-                  .contentType(MediaType.APPLICATION_JSON)
-                  .bodyValue(Map.of("error", "读取图片失败: " + e.getMessage()));
-        }
-      }).onErrorResume(e -> {
-        log.warn("⚠️ 获取验证码图片失败：{}", e.getMessage());
-        return ServerResponse.status(500)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(Map.of("error", "验证码生成失败: " + e.getMessage()));
-      });
+                return new AbstractMap.SimpleEntry<>(key, imageFile);
+              })
+          .flatMap(
+              pair -> {
+                String key = pair.getKey();
+                File file = pair.getValue();
+                try {
+                  InputStream inputStream = new FileInputStream(file);
+                  return ServerResponse.ok()
+                      .contentType(MediaType.IMAGE_PNG)
+                      .header(HttpHeaders.CACHE_CONTROL, "no-store, no-cache, must-revalidate")
+                      .header(HttpHeaders.PRAGMA, "no-cache")
+                      .header(HttpHeaders.EXPIRES, "0")
+                      .header("X-Captcha-Key", key) // 返回key给前端，必须保存用于校验
+                      .body(BodyInserters.fromResource(new InputStreamResource(inputStream)));
+                } catch (FileNotFoundException e) {
+                  return ServerResponse.status(500)
+                      .contentType(MediaType.APPLICATION_JSON)
+                      .bodyValue(Map.of("error", "读取图片失败: " + e.getMessage()));
+                }
+              })
+          .onErrorResume(
+              e -> {
+                log.warn("⚠️ 获取验证码图片失败：{}", e.getMessage());
+                return ServerResponse.status(500)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .bodyValue(Map.of("error", "验证码生成失败: " + e.getMessage()));
+              });
     }
 
     public Mono<ServerResponse> handleVerifyCaptcha(ServerRequest request) {
-      return request.bodyToMono(Map.class).flatMap(body -> {
-        String userCode = (String) body.get("captchaCode");
-        String captchaKey = (String) body.get("captchaKey");
+      return request
+          .bodyToMono(Map.class)
+          .flatMap(
+              body -> {
+                String userCode = (String) body.get("captchaCode");
+                String captchaKey = (String) body.get("captchaKey");
 
-        if (captchaKey == null || userCode == null) {
-          log.warn("⚠️ 请求缺失参数 captchaKey 或 captchaCode");
-          return ServerResponse.badRequest().bodyValue(Map.of(
-                  "code", 1,
-                  "message", "缺少 captchaKey 或 captchaCode"
-          ));
-        }
+                if (captchaKey == null || userCode == null) {
+                  log.warn("⚠️ 请求缺失参数 captchaKey 或 captchaCode");
+                  return ServerResponse.badRequest()
+                      .bodyValue(Map.of("code", 1, "message", "缺少 captchaKey 或 captchaCode"));
+                }
 
-        log.debug("🔍 正在验证验证码：captchaKey={}, captchaCode={}", captchaKey, userCode);
+                log.debug("🔍 正在验证验证码：captchaKey={}, captchaCode={}", captchaKey, userCode);
 
-        String correctAnswer = captchaMap.get(captchaKey);
-        if (correctAnswer == null) {
-          log.info("🕓 验证码 key={} 不存在或已过期", captchaKey);
-          return ServerResponse.ok().bodyValue(Map.of(
-                  "code", 1,
-                  "message", "验证码已过期或无效"
-          ));
-        }
+                String correctAnswer = captchaMap.get(captchaKey);
+                if (correctAnswer == null) {
+                  log.info("🕓 验证码 key={} 不存在或已过期", captchaKey);
+                  return ServerResponse.ok().bodyValue(Map.of("code", 1, "message", "验证码已过期或无效"));
+                }
 
-        boolean matched = correctAnswer.equalsIgnoreCase(userCode.trim());
-        if (matched) {
-          log.info("✅ 验证成功：captchaKey={} 匹配成功", captchaKey);
-          return ServerResponse.ok().bodyValue(Map.of(
-                  "code", 0,
-                  "message", "验证码正确"
-          ));
-        } else {
-          log.info("❌ 验证失败：captchaKey={}，用户输入={}，正确答案={}", captchaKey, userCode, correctAnswer);
-          return ServerResponse.ok().bodyValue(Map.of(
-                  "code", 1,
-                  "message", "验证码错误"
-          ));
-        }
-      }).onErrorResume(e -> {
-        log.error("🚨 服务器验证验证码时异常：{}", e.getMessage(), e);
-        return ServerResponse.status(500).bodyValue(Map.of(
-                "code", 1,
-                "message", "服务器内部错误: " + e.getMessage()
-        ));
-      });
+                boolean matched = correctAnswer.equalsIgnoreCase(userCode.trim());
+                if (matched) {
+                  log.info("✅ 验证成功：captchaKey={} 匹配成功", captchaKey);
+                  return ServerResponse.ok().bodyValue(Map.of("code", 0, "message", "验证码正确"));
+                } else {
+                  log.info(
+                      "❌ 验证失败：captchaKey={}，用户输入={}，正确答案={}", captchaKey, userCode, correctAnswer);
+                  return ServerResponse.ok().bodyValue(Map.of("code", 1, "message", "验证码错误"));
+                }
+              })
+          .onErrorResume(
+              e -> {
+                log.error("🚨 服务器验证验证码时异常：{}", e.getMessage(), e);
+                return ServerResponse.status(500)
+                    .bodyValue(Map.of("code", 1, "message", "服务器内部错误: " + e.getMessage()));
+              });
+    }
+  }
+
+  @Configuration(proxyBeanMethods = false)
+  public class CaptchaRouter {
+
+    @Value("${apk.file.path}")
+    private String apkFilePath;
+
+    @Bean
+    public RouterFunction<ServerResponse> videoRoutes(
+        CaptchaHandler handler, VideoInfoHandler videoHandler) {
+      return RouterFunctions.route(
+              RequestPredicates.GET("/api/captcha")
+                  .and(RequestPredicates.accept(MediaType.IMAGE_PNG)),
+              handler::handleGetCaptchaImage)
+          .andRoute(
+              RequestPredicates.POST("/api/captcha/verify")
+                  .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+              handler::handleVerifyCaptcha)
+          .andRoute(RequestPredicates.GET("/api/videoInfo"), videoHandler::handleGetVideoInfo)
+          .andRoute(RequestPredicates.GET("/api/apk"), this::handleGetApkFile);
+    }
+
+    private Mono<ServerResponse> handleGetApkFile(ServerRequest request) {
+      Optional<String> nameOpt = request.queryParam("name");
+
+      if (nameOpt.isEmpty()) {
+        return ServerResponse.status(HttpStatus.BAD_REQUEST)
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromValue("Missing 'name' query parameter"));
+      }
+
+      String name = nameOpt.get();
+
+      if (name.contains("..") || name.contains("/") || name.contains("\\")) {
+        return ServerResponse.status(HttpStatus.BAD_REQUEST)
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromValue("Invalid 'name' value"));
+      }
+
+      Path apkPath = Paths.get(apkFilePath, name);
+
+      if (!Files.exists(apkPath) || !Files.isRegularFile(apkPath)) {
+        return ServerResponse.status(HttpStatus.NOT_FOUND)
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromValue("APK file not found"));
+      }
+
+      return ServerResponse.ok()
+          .contentType(MediaType.parseMediaType("application/vnd.android.package-archive"))
+          .header("Content-Disposition", "attachment; filename=\"" + name + "\"")
+          .body(BodyInserters.fromResource(new FileSystemResource(apkPath)));
+    }
+  }
+
+  @Configuration
+  @ConfigurationProperties(prefix = "apk.file")
+  class ApkFileProperties {
+    private String path;
+
+    public String getPath() {
+      return path;
+    }
+
+    public void setPath(String path) {
+      this.path = path;
+    }
+  }
+
+  @Component
+  public class VideoInfoHandler {
+
+    private static final String VIDEO_BASE_URL = "https://wanqiu.cloudns.ch:4433/video/";
+
+    public Mono<ServerResponse> handleGetVideoInfo(ServerRequest request) {
+      String hash = request.uri().getQuery();
+      if (hash == null || hash.isEmpty()) {
+        return ServerResponse.badRequest().bodyValue("Missing hash key");
+      }
+
+      String videoUrl = VIDEO_BASE_URL + hash;
+
+      Map<String, String> response = Map.of("videoInfo", videoUrl);
+      return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(response);
     }
   }
 }
-

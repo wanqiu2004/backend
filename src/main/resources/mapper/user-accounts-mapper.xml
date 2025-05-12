@@ -7,15 +7,16 @@
 
     <!-- resultMap 显式映射实体类属性与数据库字段 -->
     <resultMap id="BaseResultMap" type="ch.cloudns.wanqiu.UserAccounts">
-        <id property="userId" column="user_id" />
-        <result property="username" column="username" />
-        <result property="password" column="password" />
-        <result property="email" column="email" />
+        <id property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
     </resultMap>
 
     <!-- 查询全部 -->
     <select id="selectAll" resultMap="BaseResultMap">
-        SELECT user_id, username, password, email FROM website_data.user_accounts LIMIT 50;
+        SELECT user_id, username, password, email
+        FROM website_data.user_accounts LIMIT 50;
     </select>
 
     <!-- 插入一条记录 -->
@@ -36,13 +37,15 @@
         UPDATE website_data.user_accounts
         SET username = #{username},
             password = #{password},
-            email = #{email}
+            email    = #{email}
         WHERE user_id = #{userId}
     </update>
 
     <!-- 删除 -->
     <delete id="deleteById" parameterType="String">
-        DELETE FROM website_data.user_accounts WHERE user_id = #{userId}
+        DELETE
+        FROM website_data.user_accounts
+        WHERE user_id = #{userId}
     </delete>
 
 </mapper>
